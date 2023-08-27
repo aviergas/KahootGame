@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Game Signup</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    <!-- Signup Form -->
+    <div class="form-container">
+        <h2>Signup</h2>
+        <input class="form-input" type="email" id="signupEmail" placeholder="Email">
+        <input class="form-input" type="password" id="signupPassword" placeholder="Password">
+        <button class="form-button" id="signupButton">Signup</button>
+        <p>Already have an account? <a href="Login">Login here</a></p>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+    <script>
+       const firebaseConfig = {
+  apiKey: "AIzaSyAZBWyAneV7ZErXNKuG1MBrc7VdtqvNKiY",
+  authDomain: "hatzroni-ac6c3.firebaseapp.com",
+  projectId: "hatzroni-ac6c3",
+  storageBucket: "hatzroni-ac6c3.appspot.com",
+  messagingSenderId: "833971896045",
+  appId: "1:833971896045:web:95763477afc532788596e4",
+  measurementId: "G-DE92V1R2LL"
+};
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = app.auth();
+    </script>
+
+    <script>
+        document.getElementById('signupButton').addEventListener('click', () => {
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            
+            auth.createUserWithEmailAndPassword(email, password)
+                .then(userCredential => {
+                    console.log('User signed up', userCredential.user);
+                    alert('Signup successful');
+                })
+                .catch(error => {
+                    console.error('Signup error', error);
+                    alert(error.message);
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #FF5F6D, #FFC371);
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: #007BFF;
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        div {
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        input[type="text"] {
+            padding: 15px 20px;
+            width: 100%;
+            border: none;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            color: #333;
+            outline: none;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Game Options</h2>
+    <button id="createGameButton">Create Game</button>
+    <button id="joinGameButton">Join Game</button>
+
+    <!-- Join Game Form -->
+    <div id="joinGameForm" style="display:none;">
+        <h3>Join Game</h3>
+        <input type="text" id="gameCodeInput" placeholder="Enter Game Code">
+        <button id="submitGameCodeButton">Submit</button>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+    <script src="/app.js"></script>
+
+    <script>
+          const firebaseConfig = {
+  apiKey: "AIzaSyAZBWyAneV7ZErXNKuG1MBrc7VdtqvNKiY",
+  authDomain: "hatzroni-ac6c3.firebaseapp.com",
+  projectId: "hatzroni-ac6c3",
+  storageBucket: "hatzroni-ac6c3.appspot.com",
+  messagingSenderId: "833971896045",
+  appId: "1:833971896045:web:95763477afc532788596e4",
+  measurementId: "G-DE92V1R2LL"
+};
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // Redirect to form creation page
+        document.getElementById('createGameButton').addEventListener('click', () => {
+            window.location.href = '/formCreation';
+        });
+
+        // Show the join game form
+        document.getElementById('joinGameButton').addEventListener('click', () => {
+            document.getElementById('joinGameForm').style.display = 'block';
+        });
+
+       // ... [The rest of your scripts]
+
+// Fetch game data based on entered game code
+document.getElementById('submitGameCodeButton').addEventListener('click', () => {
+    const gameCode = document.getElementById('gameCodeInput').value;
+
+    const db = firebase.firestore();
+    db.collection('games').doc(gameCode).get()
+        .then(doc => {
+            if (doc.exists) {
+                // Redirect to the gameDisplay page with the gameCode as a parameter
+                window.location.href = '/gameDisplay/' + gameCode;
+            } else {
+                console.log("No such game!");
+                alert("Invalid game code.");
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching game:", error);
+            alert("Error fetching game.");
+        });
+});
+
+    </script>
+
+</body>
+
+</html>

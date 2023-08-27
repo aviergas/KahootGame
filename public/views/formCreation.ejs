@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Creation</title>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #FF5F6D, #FFC371);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        div {
+            width: 90%;
+            max-width: 600px;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        textarea {
+            padding: 15px 20px;
+            width: 100%;
+            border: none;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            color: #333;
+            outline: none;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: #007BFF;
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .answerDiv {
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Create Your Game Questions</h2>
+    
+    <div id="questionsContainer"></div>
+    
+    <button id="addQuestionButton">Add Question</button>
+    <button id="submitQuestionsButton">Submit Questions</button>
+    
+    <!-- Initialize Firebase here, before any other scripts -->
+    <script>
+        const firebaseConfig = {
+  apiKey: "AIzaSyAZBWyAneV7ZErXNKuG1MBrc7VdtqvNKiY",
+  authDomain: "hatzroni-ac6c3.firebaseapp.com",
+  projectId: "hatzroni-ac6c3",
+  storageBucket: "hatzroni-ac6c3.appspot.com",
+  messagingSenderId: "833971896045",
+  appId: "1:833971896045:web:95763477afc532788596e4",
+  measurementId: "G-DE92V1R2LL"
+};
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    
+    <script src="/formCreation.js"></script>
+</body>
+</html>

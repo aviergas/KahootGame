@@ -1,0 +1,203 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #FF5F6D, #FFC371);
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-input:focus {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.form-button {
+    font-size: 16px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+    width: 100%;
+}
+
+.form-button:hover {
+    background: #0056b3;
+}
+
+a {
+    color: white;
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.question {
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.question.current {
+    display: block;
+}
+
+.answerForm div {
+    margin: 15px 0;
+}
+
+input[type="checkbox"] + label {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: inline-block;
+    width: 80%;
+    transition: 0.3s;
+}
+
+input[type="checkbox"]:checked + label {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+button {
+    font-size: 16px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.traffic-light {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.light {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 5px;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #FF5F6D, #FFC371);
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.question.current {
+    display: block;
+}
+
+.answerForm div {
+    margin: 15px 0;
+}
+
+input[type="checkbox"] + label {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: inline-block;
+    width: 80%;
+    transition: 0.3s;
+}
+
+input[type="checkbox"]:checked + label {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+button {
+    font-size: 16px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.buttonContainer {
+    margin-top: 20px;
+}
+
+/* ... [Rest of your CSS] */
